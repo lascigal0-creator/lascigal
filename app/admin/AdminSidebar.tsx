@@ -56,6 +56,7 @@ export default function AdminSidebar({
         { label: 'Facilities & Amenities', href: '/admin/facilities', icon: 'fa-building-columns' },
         { label: 'Events & Portfolio', href: '/admin/events', icon: 'fa-calendar-days' },
         { label: 'Photo Gallery', href: '/admin/gallery', icon: 'fa-images' },
+        { label: 'Scroll Films', href: '/admin/films', icon: 'fa-film' },
       ],
     },
     {

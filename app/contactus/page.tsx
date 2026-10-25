@@ -21,8 +21,8 @@ export default async function ContactUsPage() {
   const mapsUrl = settings['google_maps_url'] || 'https://maps.app.goo.gl/X1bke7LUrKtm5tHe8';
   const logo = settings['site_logo'] || 'images/laslogo1.png';
   const email = settings['email_address'] || 'lascigal@gmail.com';
-  const addressLine1 = settings['address_line1'] || 'Las Cigal Convention Center, Kalampoor, Muvattupuzha';
-  const addressPincode = settings['address_pincode'] || '686673';
+  const addressLine1 = settings['address_line1'] || 'Las Cigal Convention Center, Kalampoor, Muvattupuzha, Ernakulam District, Kerala';
+  const addressPincode = settings['address_pincode'] || '';
 
   return (
     <>
@@ -174,7 +174,7 @@ export default async function ContactUsPage() {
                 Venue Address
               </h3>
               <p style={{ color: '#64748b', fontSize: '13.5px', margin: '0 0 12px' }}>
-                {addressLine1}, PIN: {addressPincode}
+                {addressLine1}{addressPincode ? `, PIN: ${addressPincode}` : ''}
               </p>
               <a
                 href={mapsUrl}

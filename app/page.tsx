@@ -6,6 +6,7 @@ import BookingForm from '@/components/BookingForm';
 import CouponGenerator from '@/components/CouponGenerator';
 import prisma from '@/lib/prisma';
 import { mediaUrl } from '@/lib/media';
+import { getAllScrollFilms } from '@/lib/scroll-film';
 import './homepage.css';
 
 // Revalidate page data every 60 seconds
@@ -17,6 +18,8 @@ export default async function HomePage() {
     prisma.venueFacility.findMany({ orderBy: { order: 'asc' } }),
     prisma.eventService.findMany({ orderBy: { order: 'asc' }, take: 8 }),
   ]);
+
+  const scrollFilms = getAllScrollFilms();
 
   const settings = settingsList.reduce((acc, curr) => {
     acc[curr.key] = curr.value;
@@ -280,6 +283,51 @@ export default async function HomePage() {
               <span>View All Events</span>
               <i className="fas fa-layer-group" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CINEMATIC SCROLL FILMS ─── */}
+      <section id="films" className="las_section" style={{ backgroundColor: '#ffffff', padding: '80px 0' }}>
+        <div className="las_container">
+          <div className="las_section_header">
+            <span className="las_eyebrow">Interactive Virtual Exploration</span>
+            <h2 className="las_section_title">Cinematic 120-Frame Scroll Films</h2>
+            <p className="las_section_subtitle">
+              Control your tour with precision frame-by-frame scrolling. Experience our grand spaces, architectural mastery, and atmosphere at your own pace.
+            </p>
+          </div>
+
+          <div className="las_events_grid">
+            {scrollFilms.map((film) => (
+              <Link
+                key={film.slug}
+                href={`/film/${film.slug}`}
+                className="las_event_card"
+              >
+                <div className="las_event_img_wrap">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={mediaUrl(film.heroImage)}
+                    alt={film.title}
+                    className="las_event_img"
+                    loading="lazy"
+                  />
+                  <span className="las_event_cat_badge">120-Frame Film</span>
+                </div>
+
+                <div className="las_event_body">
+                  <h3 className="las_event_title">{film.title}</h3>
+                  <p className="las_event_summary">
+                    {film.tagline}
+                  </p>
+                  <span className="las_event_link_arrow">
+                    <span>Scrub Film</span>
+                    <i className="fas fa-play" style={{ fontSize: '11px' }} />
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

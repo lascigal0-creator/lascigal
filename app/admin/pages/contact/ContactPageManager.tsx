@@ -187,7 +187,7 @@ export default function ContactPageManager({ initialSettings }: { initialSetting
               type="text"
               value={settings['address_pincode'] || ''}
               onChange={(e) => handleChange('address_pincode', e.target.value)}
-              placeholder="e.g. 686673"
+              placeholder="Enter PIN code when confirmed"
               style={{ width: '100%', padding: '10px 14px', borderRadius: '6px', border: '1px solid #d1d5db', fontSize: '14px' }}
             />
           </div>

@@ -16,8 +16,8 @@ export default function Footer({
   phone1 = '7306107515',
   phone2 = '9745897834',
   email = 'lascigal@gmail.com',
-  addressLine1 = 'Las Cigal Convention Center, Kalampoor, Muvattupuzha',
-  addressPincode = '686673',
+  addressLine1 = 'Las Cigal Convention Center, Kalampoor, Muvattupuzha, Ernakulam District, Kerala',
+  addressPincode = '',
   mapsUrl = 'https://maps.app.goo.gl/X1bke7LUrKtm5tHe8',
   mapsEmbed = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14223.02209307127!2d76.6284003!3d9.9972091!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07e79536923b0b%3A0x1d30fe64d311d295!2sLas%20Cigal%20Convention%20Centre%2C%20Kalampoor!5e1!3m2!1sen!2sin!4v1758356626772!5m2!1sen!2sin',
   logo = 'images/laslogo1.png',
@@ -134,8 +134,12 @@ export default function Footer({
                   <i className="fas fa-map-marker-alt" style={{ color: '#c5a880', marginTop: '3px' }} />
                   <div>
                     <span>{addressLine1}</span>
-                    <br />
-                    <span>PIN: {addressPincode}</span>
+                    {addressPincode ? (
+                      <>
+                        <br />
+                        <span>PIN: {addressPincode}</span>
+                      </>
+                    ) : null}
                   </div>
                 </div>
 
