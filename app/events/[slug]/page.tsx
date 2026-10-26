@@ -39,8 +39,30 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
   const mapsUrl = settings['google_maps_url'] || 'https://maps.app.goo.gl/X1bke7LUrKtm5tHe8';
   const logo = settings['site_logo'] || 'images/laslogo1.png';
 
+  const eventJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: event.title,
+    serviceType: event.categoryName,
+    description: event.summary || event.description,
+    provider: {
+      '@type': 'EventVenue',
+      name: 'Lascigal Convention Centre',
+      url: 'https://www.lascigal.com',
+    },
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: 'Kerala, India',
+    },
+    image: mediaUrl(event.heroImage),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
       <Header phone1={phone1} phone2={phone2} whatsapp={whatsapp} mapsUrl={mapsUrl} logo={logo} />
 
       {/* ─── LUXURY HERO BANNER ─── */}

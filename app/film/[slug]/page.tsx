@@ -66,8 +66,34 @@ export default async function FilmDetailsPage({ params }: Props) {
     .map((slug) => allFilms.find((f) => f.slug === slug))
     .filter((f): f is NonNullable<typeof f> => Boolean(f));
 
+  const filmJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: film.title,
+    description: film.tagline,
+    thumbnailUrl: [
+      mediaUrl(film.heroImage),
+      'https://www.lascigal.com/stills/gallery-aerial.webp',
+    ],
+    uploadDate: '2026-10-25T00:00:00Z',
+    contentUrl: `https://www.lascigal.com/film/${film.slug}`,
+    embedUrl: `https://www.lascigal.com/film/${film.slug}`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Lascigal Convention Centre',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.lascigal.com/images/laslogo1.png',
+      },
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(filmJsonLd) }}
+      />
       <Header phone1={phone1} phone2={phone2} whatsapp={whatsapp} mapsUrl={mapsUrl} logo={logo} />
 
       {/* ─── SCROLL FILM HERO PLAYER ─── */}
