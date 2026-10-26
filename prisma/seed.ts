@@ -29,6 +29,10 @@ async function main() {
     { key: 'director_title', value: 'A Vision of Grandeur, Warmth & Unforgettable Celebrations' },
     { key: 'director_message', value: 'Welcome to Lascigal Convention Center.\n\nWhen we set out to build Lascigal in Kalampoor, our dream was not merely to create another banquet venue, but to craft an architectural landmark that elevates every milestone of life into a cherished, timeless memory. From the majestic pillarless sightlines of our grand auditorium to our climate-controlled dining hall and landscaped arrivals, every single detail has been engineered with uncompromising devotion to excellence.\n\nWe understand that a wedding, an anniversary, or an executive conference is far more than a gathering—it is a sacred celebration of love, achievement, and family togetherness. That is why our team is committed to delivering not only world-class infrastructure and seamless logistics, but the genuine Kerala warmth, care, and hospitality that makes every guest feel truly honored.\n\nOn behalf of the entire Lascigal family, I welcome you to experience our venue, celebrate your finest moments with us, and let us help write the next beautiful chapter of your story.' },
     { key: 'director_video_url', value: 'https://www.youtube.com/embed/AzCr_TVEpe0?si=M3fNrsrxDAMWlMbA' },
+    { key: 'director_eyebrow', value: 'Message from Management' },
+    { key: 'director_signatory_name', value: 'Management' },
+    { key: 'director_signatory_role', value: 'Las Cigal Convention Centre' },
+    { key: 'director_signatory_sub', value: 'Kalampoor, Muvattupuzha, Kerala' },
   ];
 
   for (const s of settings) {

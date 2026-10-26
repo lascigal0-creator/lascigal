@@ -24,6 +24,10 @@ export default async function AboutUsPage() {
   const directorMessage =
     settings['director_message'] ||
     'Welcome to Lascigal Convention Center.\n\nWhen we set out to build Lascigal in Kalampoor, our dream was not merely to create another banquet venue, but to craft an architectural landmark that elevates every milestone of life into a cherished, timeless memory. From the majestic pillarless sightlines of our grand auditorium to our climate-controlled dining hall and landscaped arrivals, every single detail has been engineered with uncompromising devotion to excellence.\n\nWe understand that a wedding, an anniversary, or an executive conference is far more than a gathering—it is a sacred celebration of love, achievement, and family togetherness. That is why our team is committed to delivering not only world-class infrastructure and seamless logistics, but the genuine Kerala warmth, care, and hospitality that makes every guest feel truly honored.\n\nOn behalf of the entire Lascigal family, I welcome you to experience our venue, celebrate your finest moments with us, and let us help write the next beautiful chapter of your story.';
+  const eyebrowText = settings['director_eyebrow'] || 'Message from Management';
+  const signatoryName = settings['director_signatory_name'] || 'Management';
+  const signatoryRole = settings['director_signatory_role'] || 'Las Cigal Convention Centre';
+  const signatorySub = settings['director_signatory_sub'] || 'Kalampoor, Muvattupuzha, Kerala';
 
   // Sanitize YouTube URL in case raw embed HTML / iframe attributes were stored
   const rawVideoUrl =
@@ -65,7 +69,7 @@ export default async function AboutUsPage() {
           >
             {/* Left Column: Message */}
             <div>
-              <span className="las_eyebrow">Director&apos;s Word</span>
+              <span className="las_eyebrow">{eyebrowText}</span>
               <h2
                 style={{
                   fontFamily: "'Playfair Display', serif",
@@ -86,7 +90,7 @@ export default async function AboutUsPage() {
                 ))}
               </div>
 
-              {/* Director Signature & Credentials */}
+              {/* Management Signature Block */}
               <div
                 style={{
                   display: 'flex',
@@ -112,7 +116,7 @@ export default async function AboutUsPage() {
                     flexShrink: 0,
                   }}
                 >
-                  <i className="fas fa-user-tie" />
+                  <i className="fas fa-landmark" />
                 </div>
                 <div>
                   <h4
@@ -124,13 +128,13 @@ export default async function AboutUsPage() {
                       margin: '0 0 2px',
                     }}
                   >
-                    Baiju Thomas
+                    {signatoryName}
                   </h4>
                   <p style={{ margin: 0, fontSize: '13.5px', color: '#be9f76', fontWeight: 600 }}>
-                    Managing Director &amp; Visionary
+                    {signatoryRole}
                   </p>
                   <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>
-                    Malekudiyil Lascigal Convention Center
+                    {signatorySub}
                   </p>
                 </div>
               </div>

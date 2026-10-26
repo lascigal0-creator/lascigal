@@ -28,6 +28,10 @@ export default function AboutPageManager({ initialSettings }: { initialSettings:
         director_title: settings['director_title'] || '',
         director_message: settings['director_message'] || '',
         director_video_url: settings['director_video_url'] || '',
+        director_eyebrow: settings['director_eyebrow'] || 'Message from Management',
+        director_signatory_name: settings['director_signatory_name'] || 'Management',
+        director_signatory_role: settings['director_signatory_role'] || 'Las Cigal Convention Centre',
+        director_signatory_sub: settings['director_signatory_sub'] || 'Kalampoor, Muvattupuzha, Kerala',
       };
       const res = await fetch('/api/settings', {
         method: 'POST',
@@ -115,6 +119,40 @@ export default function AboutPageManager({ initialSettings }: { initialSettings:
             style={{ width: '100%', padding: '12px 14px', borderRadius: '6px', border: '1px solid #d1d5db', fontSize: '14px', lineHeight: 1.6 }}
           ></textarea>
           <span style={{ fontSize: '12px', color: '#6b7280' }}>Tip: Use double line breaks between paragraphs to format readable spacing.</span>
+        </div>
+
+        {/* Signatory / Author Details */}
+        <div style={{ borderTop: '1px solid #f0f0f0', paddingTop: '20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '15px' }}>
+          <div>
+            <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, marginBottom: '6px' }}>Signatory / Author (e.g. Management)</label>
+            <input
+              type="text"
+              value={settings['director_signatory_name'] || ''}
+              onChange={(e) => handleChange('director_signatory_name', e.target.value)}
+              placeholder="Management"
+              style={{ width: '100%', padding: '10px 14px', borderRadius: '6px', border: '1px solid #d1d5db', fontSize: '14px' }}
+            />
+          </div>
+          <div>
+            <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, marginBottom: '6px' }}>Signatory Title / Role</label>
+            <input
+              type="text"
+              value={settings['director_signatory_role'] || ''}
+              onChange={(e) => handleChange('director_signatory_role', e.target.value)}
+              placeholder="Las Cigal Convention Centre"
+              style={{ width: '100%', padding: '10px 14px', borderRadius: '6px', border: '1px solid #d1d5db', fontSize: '14px' }}
+            />
+          </div>
+          <div>
+            <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, marginBottom: '6px' }}>Location / Subtitle</label>
+            <input
+              type="text"
+              value={settings['director_signatory_sub'] || ''}
+              onChange={(e) => handleChange('director_signatory_sub', e.target.value)}
+              placeholder="Kalampoor, Muvattupuzha, Kerala"
+              style={{ width: '100%', padding: '10px 14px', borderRadius: '6px', border: '1px solid #d1d5db', fontSize: '14px' }}
+            />
+          </div>
         </div>
       </div>
 
