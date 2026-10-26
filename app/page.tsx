@@ -33,7 +33,11 @@ export default async function HomePage() {
   const logo = settings['site_logo'] || 'images/laslogo1.png';
 
   const heroHeading = settings['hero_heading'] || 'Creating Unforgettable Moments for Every Occasion';
-  const heroSubheading = settings['hero_subheading'] || 'Welcome to Lascigal Convention Centre';
+  const heroSubheadingRaw = settings['hero_subheading'] || 'Welcome to Lascigal Convention Centre';
+  const heroSubheading =
+    heroSubheadingRaw.trim().toLowerCase() === 'welcome'
+      ? 'Welcome to Lascigal Convention Centre'
+      : heroSubheadingRaw;
   const heroImage = settings['hero_image'] || 'images/gallery/DSC01156.jpg.webp';
   const offerBannerText =
     settings['offer_banner_text'] ||

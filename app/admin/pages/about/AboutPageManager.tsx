@@ -11,7 +11,12 @@ export default function AboutPageManager({ initialSettings }: { initialSettings:
   const [saved, setSaved] = useState(false);
 
   const handleChange = (key: string, value: string) => {
-    setSettings((prev) => ({ ...prev, [key]: value }));
+    let cleanVal = value;
+    if (key === 'director_video_url') {
+      const match = value.match(/src=["']?([^"'\s>]+)/i);
+      if (match) cleanVal = match[1];
+    }
+    setSettings((prev) => ({ ...prev, [key]: cleanVal }));
     setSaved(false);
   };
 
@@ -54,7 +59,9 @@ export default function AboutPageManager({ initialSettings }: { initialSettings:
     }
   };
 
-  const currentVideo = settings['director_video_url'] || 'https://www.youtube.com/embed/dANtb6anAWI?start=21&end=305';
+  const rawVid = settings['director_video_url'] || 'https://www.youtube.com/embed/AzCr_TVEpe0?si=M3fNrsrxDAMWlMbA';
+  const vidMatch = rawVid.match(/src=["']?([^"'\s>]+)/i);
+  const currentVideo = vidMatch ? vidMatch[1] : rawVid.split(/[\s"']/)[0] || 'https://www.youtube.com/embed/AzCr_TVEpe0';
 
   return (
     <form onSubmit={handleSave}>

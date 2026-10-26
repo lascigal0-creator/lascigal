@@ -21,14 +21,14 @@ async function main() {
     { key: 'google_maps_embed', value: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14223.02209307127!2d76.6284003!3d9.9972091!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07e79536923b0b%3A0x1d30fe64d311d295!2sLas%20Cigal%20Convention%20Centre%2C%20Kalampoor!5e1!3m2!1sen!2sin!4v1758356626772!5m2!1sen!2sin' },
     { key: 'offer_banner_text', value: '“Exclusive Deal: Reserve your spot today & save big with our limited-time discount!”' },
     { key: 'hero_heading', value: 'Creating Unforgettable Moments for Every Occasion' },
-    { key: 'hero_subheading', value: 'welcome' },
+    { key: 'hero_subheading', value: 'Welcome to Lascigal Convention Centre' },
     { key: 'hero_image', value: 'images/gallery/DSC01156.jpg.webp' },
     { key: 'about_heading', value: 'Transforming Events Into Experiences Celebrating Life' },
     { key: 'about_text', value: 'At Lascigal Convention Center, we believe every event is more than just a gathering—it’s a memory in the making. Our vision has always been to create a space where elegance meets excellence, and where your special moments are celebrated with the care, warmth, and sophistication they truly deserve.' },
     { key: 'about_image', value: 'images/gallery/FRONT_VIEW.jpeg' },
-    { key: 'director_title', value: 'Lascigal – Creating Spaces That Tell Your Story' },
-    { key: 'director_message', value: 'At Lascigal Convention Center, we believe every event is more than just a gathering—it’s a memory in the making. Our vision has always been to create a space where elegance meets excellence, and where your special moments are celebrated with the care, warmth, and sophistication they truly deserve.\n\nFrom weddings and corporate events to grand celebrations, we provide world-class facilities, seamless service, and an atmosphere that inspires joy. As the Director, it is my honor to ensure that each guest experiences not only the grandeur of our venue but also the personal touch that makes every occasion unforgettable.' },
-    { key: 'director_video_url', value: 'https://www.youtube.com/embed/dANtb6anAWI?start=21&end=305' },
+    { key: 'director_title', value: 'A Vision of Grandeur, Warmth & Unforgettable Celebrations' },
+    { key: 'director_message', value: 'Welcome to Lascigal Convention Center.\n\nWhen we set out to build Lascigal in Kalampoor, our dream was not merely to create another banquet venue, but to craft an architectural landmark that elevates every milestone of life into a cherished, timeless memory. From the majestic pillarless sightlines of our grand auditorium to our climate-controlled dining hall and landscaped arrivals, every single detail has been engineered with uncompromising devotion to excellence.\n\nWe understand that a wedding, an anniversary, or an executive conference is far more than a gathering—it is a sacred celebration of love, achievement, and family togetherness. That is why our team is committed to delivering not only world-class infrastructure and seamless logistics, but the genuine Kerala warmth, care, and hospitality that makes every guest feel truly honored.\n\nOn behalf of the entire Lascigal family, I welcome you to experience our venue, celebrate your finest moments with us, and let us help write the next beautiful chapter of your story.' },
+    { key: 'director_video_url', value: 'https://www.youtube.com/embed/AzCr_TVEpe0?si=M3fNrsrxDAMWlMbA' },
   ];
 
   for (const s of settings) {

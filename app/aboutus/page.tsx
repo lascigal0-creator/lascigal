@@ -18,11 +18,22 @@ export default async function AboutUsPage() {
   const whatsapp = settings['whatsapp_number'] || '917306107515';
   const mapsUrl = settings['google_maps_url'] || 'https://maps.app.goo.gl/X1bke7LUrKtm5tHe8';
   const logo = settings['site_logo'] || 'images/laslogo1.png';
-  const directorTitle = settings['director_title'] || 'Lascigal – Creating Spaces That Tell Your Story';
+  const directorTitle =
+    settings['director_title'] ||
+    'A Vision of Grandeur, Warmth & Unforgettable Celebrations';
   const directorMessage =
     settings['director_message'] ||
-    'At Lascigal Convention Center, we believe every event is more than just a gathering—it\u2019s a memory in the making. Our vision has always been to create a space where elegance meets excellence, and where your special moments are celebrated with the care, warmth, and sophistication they truly deserve.\n\nFrom weddings and corporate events to grand celebrations, we provide world-class facilities, seamless service, and an atmosphere that inspires joy. As the Director, it is my honor to ensure that each guest experiences not only the grandeur of our venue but also the personal touch that makes every occasion unforgettable.';
-  const videoUrl = settings['director_video_url'] || 'https://www.youtube.com/embed/dANtb6anAWI?start=21&end=305';
+    'Welcome to Lascigal Convention Center.\n\nWhen we set out to build Lascigal in Kalampoor, our dream was not merely to create another banquet venue, but to craft an architectural landmark that elevates every milestone of life into a cherished, timeless memory. From the majestic pillarless sightlines of our grand auditorium to our climate-controlled dining hall and landscaped arrivals, every single detail has been engineered with uncompromising devotion to excellence.\n\nWe understand that a wedding, an anniversary, or an executive conference is far more than a gathering—it is a sacred celebration of love, achievement, and family togetherness. That is why our team is committed to delivering not only world-class infrastructure and seamless logistics, but the genuine Kerala warmth, care, and hospitality that makes every guest feel truly honored.\n\nOn behalf of the entire Lascigal family, I welcome you to experience our venue, celebrate your finest moments with us, and let us help write the next beautiful chapter of your story.';
+
+  // Sanitize YouTube URL in case raw embed HTML / iframe attributes were stored
+  const rawVideoUrl =
+    settings['director_video_url'] ||
+    'https://www.youtube.com/embed/AzCr_TVEpe0?si=M3fNrsrxDAMWlMbA';
+  const videoMatch = rawVideoUrl.match(/src=["']?([^"'\s>]+)/i);
+  const videoUrl = videoMatch
+    ? videoMatch[1]
+    : rawVideoUrl.split(/[\s"']/)[0] ||
+      'https://www.youtube.com/embed/AzCr_TVEpe0?si=M3fNrsrxDAMWlMbA';
 
   return (
     <>
@@ -73,6 +84,55 @@ export default async function AboutUsPage() {
                     {para}
                   </p>
                 ))}
+              </div>
+
+              {/* Director Signature & Credentials */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '16px',
+                  paddingTop: '20px',
+                  borderTop: '1px solid #e2e8f0',
+                  marginTop: '24px',
+                }}
+              >
+                <div
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(190, 159, 118, 0.15)',
+                    border: '2px solid #be9f76',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#be9f76',
+                    fontSize: '22px',
+                    flexShrink: 0,
+                  }}
+                >
+                  <i className="fas fa-user-tie" />
+                </div>
+                <div>
+                  <h4
+                    style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: '19px',
+                      fontWeight: 700,
+                      color: '#0f172a',
+                      margin: '0 0 2px',
+                    }}
+                  >
+                    Baiju Thomas
+                  </h4>
+                  <p style={{ margin: 0, fontSize: '13.5px', color: '#be9f76', fontWeight: 600 }}>
+                    Managing Director &amp; Visionary
+                  </p>
+                  <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>
+                    Malekudiyil Lascigal Convention Center
+                  </p>
+                </div>
               </div>
 
               {/* Social Channels */}
